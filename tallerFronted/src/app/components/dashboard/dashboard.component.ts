@@ -7,6 +7,9 @@ import { ProyectoService } from '../../modules/proyectos/services/proyecto.servi
 import { TareaInterface } from '../../models/tareasInterface';
 import { TareaService } from '../../modules/tareas/services/tarea.service';
 
+
+import { formatDate } from '@angular/common';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,17 +17,25 @@ import { TareaService } from '../../modules/tareas/services/tarea.service';
 })
 export class DashboardComponent implements OnInit {
 
+	valueInput:string = '';
+
 	proyectos: ProyectosInterface[];
 
 	tareas: TareaInterface[];
 
+	estado1: string = "Terminado";
+	estado2: string = "En progreso";
+
 	fecha = Date.now();
+	fechaR:string = "";
 
 	editState: boolean = false;
 	vistaToEdit: ProyectosInterface;
 
 	constructor(private proyectoService: ProyectoService, 
-		private tareaService: TareaService) { }
+		private tareaService: TareaService) {
+		this.fechaR = formatDate(this.fecha, 'yyyyMMdd', 'en-US');
+		}
 
   ngOnInit() {
 	  this.proyectoService.getProyectos().subscribe(proyectos => {
@@ -35,6 +46,7 @@ export class DashboardComponent implements OnInit {
 	  this.tareaService.getTareas().subscribe(tareas => {
 		  this.tareas = tareas;
 	  });
+	  console.log(this.fechaR);
   }
 
 	editVista(event, proyecto:ProyectosInterface){
@@ -45,6 +57,7 @@ export class DashboardComponent implements OnInit {
 	clearState(){
 		this.editState = false;
 		this.vistaToEdit = null;
+		console.log('clearState dashboard')
 	}
 
 }

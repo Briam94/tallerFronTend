@@ -2,6 +2,8 @@
 <br>
 <div *ngIf="proyectos?.length > 0;else noProyectos" class="container">
 	<ul *ngFor="let proyecto of proyectos" class="list-group">
+
+
 		<li class="list-group-item text-left">
 			<!-- BOTON EDITAR -->
 			<button *ngIf="editState == false" (click)="editProyecto($event, proyecto)" type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
@@ -80,6 +82,7 @@
 				</form>
 				</div>
 		</li>
+		<br>
 	</ul>
 </div>
 <br>
