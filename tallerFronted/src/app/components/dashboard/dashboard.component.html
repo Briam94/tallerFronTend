@@ -48,20 +48,6 @@
   </div>
 
 
-<!-- BUSQUEDA LISTA DESPLEGABLE -->
-
-<select class="form-control">
-  <option selected>- SELECTED -</option>
-    <option *ngFor="let proyecto of proyectos">
-      <div *ngIf="proyecto.estado == estado2">
-    {{proyecto.nombre}} - {{proyecto.fecha_inicio}}
-     - {{proyecto.fecha_entrega}} - {{proyecto.estado}}        
-      </div>
-    </option>
-</select>
-<br>
-<br>
-
 <!-- TABLAS DE ESTADO -->
 	<table class="table table-striped table-hover">
   <thead class="thead-dark">

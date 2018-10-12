@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
 	estado1: string = "Terminado";
 	estado2: string = "En progreso";
+	fechaC:Date;
 
 	fecha = Date.now();
 	fechaR:string = "";
