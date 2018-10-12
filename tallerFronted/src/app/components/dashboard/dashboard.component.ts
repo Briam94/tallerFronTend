@@ -18,6 +18,11 @@ export class DashboardComponent implements OnInit {
 
 	tareas: TareaInterface[];
 
+	fecha = Date.now();
+
+	editState: boolean = false;
+	vistaToEdit: ProyectosInterface;
+
 	constructor(private proyectoService: ProyectoService, 
 		private tareaService: TareaService) { }
 
@@ -31,5 +36,15 @@ export class DashboardComponent implements OnInit {
 		  this.tareas = tareas;
 	  });
   }
+
+	editVista(event, proyecto:ProyectosInterface){
+		this.editState = true;
+		this.vistaToEdit = proyecto;
+	}
+
+	clearState(){
+		this.editState = false;
+		this.vistaToEdit = null;
+	}
 
 }

@@ -4,7 +4,6 @@ import { ProyectosInterface } from '../../../models/proyectosInterface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
 import { filter } from 'rxjs/operators';
 
 @Injectable({
@@ -26,12 +25,6 @@ export class ProyectoService {
 			  return { id, ...data };
 		  }))
 	  );
-  }
-
-	getProyectosNombre(nombre: string){
-		let proyectos = this.getProyectos();
-		let proyecto = proyectos.source.pipe(filter(item => item.nombre == nombre));
-		return proyectos;
   }
 
   getProyectos(){
