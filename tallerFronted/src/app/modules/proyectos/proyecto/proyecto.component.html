@@ -1,0 +1,89 @@
+<app-add-proyecto></app-add-proyecto>
+<br>
+<div *ngIf="proyectos?.length > 0;else noProyectos" class="container">
+	<ul *ngFor="let proyecto of proyectos" class="list-group">
+		<li class="list-group-item text-left">
+			<!-- BOTON EDITAR -->
+			<button *ngIf="editState == false" (click)="editProyecto($event, proyecto)" type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+			<!-- BOTON CERRAR -->
+			<button *ngIf="editState && proyectoToEdit.id == proyecto.id" (click)="clearState" type="button" class=" ml-2 btn btn-dark">
+				<i class="fas fa-times-circle"></i></button>
+			<!-- BOTON ELIMINAR -->
+			<button (click)="deleteProyecto($event, proyecto)" type="button" class=" ml-2 btn btn-danger">
+				<i class="fas fa-trash-alt"></i></button>
+				<!-- FORMULARIO DE VISTA -->
+				<br><br>
+				<strong><h3>{{proyecto.nombre}}</h3></strong>
+				<br>
+				<blockquote>{{proyecto.descripcion}}</blockquote>
+				<br>
+				<span class="my_tag p-3 mb-2 bg-primary text-white">
+					<strong>Responsable: </strong>{{proyecto.responsable}}
+				</span>
+				<span class="my_tag p-3 mb-2 bg-primary text-white">
+					<strong>Fecha Inicio: </strong> <strong>{{proyecto.fecha_inicio}}</strong>
+				</span>
+				<span class="my_tag p-3 mb-2 bg-primary text-white">
+					<strong>Fecha Entrega: </strong><strong>{{proyecto.fecha_entrega}}</strong>
+				</span>
+				<span class="my_tag p-3 mb-2 bg-primary text-white">
+					<strong>Estado: </strong>{{proyecto.estado}}
+				</span>
+				<br>
+				<hr>
+				<div *ngIf="editState && proyectoToEdit.id == proyecto.id" class="container-updateCurso">
+					<!-- TODO: form -->
+				<!-- FORMULARIO DE ACTUALIZACION -->
+
+					<form (ngSubmit)="onUpdateProyecto(proyecto)" class="col s6">
+					  <div class="row">
+					    <div class="col">
+					    	<label><span>NOMBRE DEL PROYECTO</span></label>
+					      <input [(ngModel)]="proyecto.nombre" #nombre="ngModel" name="nombre" type="text" class="form-control" placeholder="Nombre del proyecto">
+					    </div>
+					    <div class="col">
+					    	<label><span>RESPONSABLE DEL PROYECTO</span></label>
+					      <input [(ngModel)]="proyecto.responsable" #responsable="ngModel"
+					       name="descripcion" type="text" class="form-control" placeholder="Nombre de persona a cargo">
+					    </div>
+					  </div>
+					  <br>
+					  <div class="row">
+					    <div class="col">
+					    	<label><span>FECHA DE INICIO</span></label>
+					      <input [(ngModel)]="proyecto.fecha_inicio" #fecha_inicio="ngModel"
+					       name="fecha_inicio" type="date" class="form-control" >
+					    </div>
+					    <div class="col">
+					    	<label><span>FECHA DE ENTREGA</span></label>
+					      <input [(ngModel)]="proyecto.fecha_entrega" #fecha_entrega="ngModel"
+					       name="fecha_entrega" type="date" class="form-control">
+					    </div>
+					    <div class="col">
+					      <label for="inputState">ESTADO</label>
+					      <select [(ngModel)]="proyecto.estado" #estado="ngModel" name="estado"
+					       id="inputState" class="form-control">
+					        <option selected>En progreso</option>
+					        <option>Terminado</option>
+					      </select>
+					    </div>
+					  </div>
+					  <br>
+					    <div class="form-group text-center">
+					    	<label for="inputState"><span>DESCRIPCION</span></label>
+					      <textarea [(ngModel)]="proyecto.descripcion" #descripcion="ngModel" rows="4" cols="50" type="text" class="form-control" name="descripcion" id="descripcion"></textarea>
+					    </div>
+					  <br>
+					  <div class="text-center">
+					  	<button type="submit" class="btn btn-primary btn-lg">ACTUALIZAR<i class="far fa-save ml-2"></i></button>
+					  </div>
+				</form>
+				</div>
+		</li>
+	</ul>
+</div>
+<br>
+
+<ng-template #noProyectos>
+	<hr><H5>SIN PROYECTOS</H5>
+</ng-template>

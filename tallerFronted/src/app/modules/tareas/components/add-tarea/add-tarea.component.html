@@ -1,0 +1,44 @@
+<div class="container">
+	<br>
+	<div class="card">
+		<div class="card-body">
+			<h2 class="card-title font-weight-bold text-center">REGISTRAR TAREA</h2>
+			<form (ngSubmit)="onGuardarTarea(formNew)" #formNew="ngForm" >
+			  	<div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label >NOMBRE DE LA TAREA</label>
+				      <input [(ngModel)]="tarea.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" class="form-control"  placeholder="Nombre tarea">
+				    </div>			    
+				    <div class="form-group col-md-6">
+				      <label >PRIORIDAD</label>
+				      <select [(ngModel)]="tarea.prioridad" #prioridad="ngModel" name="prioridad" id="prioridad" class="form-control">
+				        <option selected>ALTA</option>
+				        <option>MEDIA</option>
+				        <option>BAJA</option>
+				      </select>
+				    </div>
+				</div>	
+				<br>								    
+			  	<div class="form-row">
+			  		<label for="inputState">PROYECTO</label>
+					<select  [(ngModel)]="tarea.proyecto" #proyecto="ngModel"  name="proyecto" id="proyecto" class="form-control">
+						<option selected>- SELECTED -</option>
+					  	<option  *ngFor="let proyecto of proyectos">
+					  	{{proyecto.nombre}}
+					</option>
+					</select>
+				</div>
+				<br>		    
+				<div class="form-group text-center">
+				   	<label  for="inputState"><span>DESCRIPCION</span></label>
+				    <textarea  [(ngModel)]="tarea.descripcion" #descripcion="ngModel"  rows="6" cols="50" type="text" class="form-control" 
+				    name="descripcion" id="descripcion"></textarea>
+				</div>
+				<br>
+				<div class="text-center">
+			  	<button type="submit" class="btn btn-primary btn-lg">GUARDAR<i class="far fa-save ml-2"></i></button>
+			  </div>
+			</form>
+		</div>
+	</div>
+</div>

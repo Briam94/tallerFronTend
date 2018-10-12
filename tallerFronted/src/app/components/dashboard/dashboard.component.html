@@ -1,0 +1,45 @@
+<div class="container">
+	<br>
+	<table class="table table-striped table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">NOMBRE PROYECTO</th>
+      <th scope="col">FECHA INICIO</th>
+      <th scope="col">FECHA ENTREGA</th>
+      <th scope="col">ESTADO</th>
+      <th scope="col">ACCIONES</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let proyecto of proyectos" >
+    <tr>
+      <td>{{proyecto.nombre}}</td>
+      <td>{{proyecto.fecha_inicio}}</td>
+      <td>{{proyecto.fecha_entrega}}</td>
+      <td>{{proyecto.estado}}</td>
+      <td><button type="button" class="btn btn-info">VER</button></td>
+    </tr>
+  </tbody>
+</table>
+<br><br>
+
+  <table class="table table-striped table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">NOMBRE TAREA</th>
+      <th scope="col">PRIORIDAD</th>
+      <th scope="col">PROYECTO</th>
+      <th scope="col">DESCRIPCION</th>
+      <th scope="col">ACCIONES</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let tarea of tareas" >
+    <tr>
+      <td>{{tarea.nombre}}</td>
+      <td>{{tarea.prioridad}}</td>
+      <td>{{tarea.proyecto}}</td>
+      <td>{{tarea.descripcion}}</td>
+      <td><button type="button" class="btn btn-info">VER</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+	<br>
+	<div class="card">
+		<div class="card-body">
+			<h2 class="card-title font-weight-bold text-center">REGISTRAR PROYECTO</h2>
+			<form (ngSubmit)="onGuardarProyecto(formNew)" #formNew="ngForm" class="col s6">
+			  <div class="row">
+			    <div class="col">
+			    	<label><span>NOMBRE DEL PROYECTO</span></label>
+			      <input [(ngModel)]="proyecto.nombre" #nombre="ngModel" name="nombre" type="text" class="form-control" placeholder="Nombre del proyecto">
+			    </div>
+			    <div class="col">
+			    	<label><span>RESPONSABLE DEL PROYECTO</span></label>
+			      <input [(ngModel)]="proyecto.responsable" #responsable="ngModel"
+			       name="descripcion" type="text" class="form-control" placeholder="Nombre de persona a cargo">
+			    </div>
+			  </div>
+			  <br>
+			  <div class="row">
+			    <div class="col">
+			    	<label><span>FECHA DE INICIO</span></label>
+			      <input [(ngModel)]="proyecto.fecha_inicio" #fecha_inicio="ngModel"
+			       name="fecha_inicio" type="date" class="form-control" >
+			    </div>
+			    <div class="col">
+			    	<label><span>FECHA DE ENTREGA</span></label>
+			      <input [(ngModel)]="proyecto.fecha_entrega" #fecha_entrega="ngModel"
+			       name="fecha_entrega" type="date" class="form-control">
+			    </div>
+			    <div class="col">
+			      <label for="inputState">ESTADO</label>
+			      <select [(ngModel)]="proyecto.estado" #estado="ngModel" name="estado"
+			       id="inputState" class="form-control">
+			        <option selected>En progreso</option>
+			        <option>Terminado</option>
+			      </select>
+			    </div>
+			  </div>
+			  <br>
+			    <div class="form-group text-center">
+			    	<label for="inputState"><span>DESCRIPCION</span></label>
+			      <textarea [(ngModel)]="proyecto.descripcion" #descripcion="ngModel" rows="4" cols="30" type="text" class="form-control" name="descripcion" id="descripcion"></textarea>
+			    </div>
+			  <br>
+			  <div class="text-center">
+			  	<button type="submit" class="btn btn-primary btn-lg">AGREGAR<i class="far fa-save ml-2"></i></button>
+			  </div>
+			</form>
+		</div>
+	</div>	
+</div>
