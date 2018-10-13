@@ -13,12 +13,14 @@ import { ProyectoService } from './modules/proyectos/services/proyecto.service';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app.routes';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

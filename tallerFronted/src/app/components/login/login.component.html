@@ -1,0 +1,22 @@
+<br>
+<div class="container">
+	<div class="text-center">
+		<h4>PARA INICIAR SESION PORFAVOR INGRESA USUARIO Y CONTRASEÑA</h4>
+		<form class="px-4 py-3">
+	    <div class="form-group">
+	      <label>NOMBRE DE USUARIO</label>
+	      <input [(ngModel)]="nombres" name="nombres" type="email" class="form-control" placeholder="Nombre usuario">
+	    </div>
+	    <div class="form-group">
+	      <label>CONTRASEÑA</label>
+	      <input [(ngModel)]="passwords" name="passwords" type="password" class="form-control" placeholder="Contraseña">
+	    </div>
+	    <div class="text-center" *ngFor="let usuario of usuarios">
+	    	<div *ngIf="usuario.nombre == nombres && usuario.password == passwords">
+	    		<button [routerLink]="['/inicio']" type="submit" class="btn btn-primary">INGRESAR</button>
+	    	</div>
+	    	
+		</div>
+	  </form>
+	</div>	  
+</div>

@@ -4,7 +4,6 @@ import { ProyectosInterface } from '../../../models/proyectosInterface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

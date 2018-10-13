@@ -10,9 +10,6 @@ import { ProyectoService } from '../services/proyecto.service';
 })
 export class ProyectoComponent implements OnInit {
 
-
-	valueInput: string = '';
-
 	proyectos: ProyectosInterface[];
 	editState: boolean = false;
 	proyectoToEdit: ProyectosInterface;
